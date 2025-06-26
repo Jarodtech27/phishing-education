@@ -47,33 +47,37 @@
 
     <section class="alert-box">
       <strong>Report suspicious emails:</strong>
-      <a href="mailto:security@synergymedical.com">security@synergymedical.com</a>
+      <a href="mailto:Jarod@synergymedicalgrp.com">jarod@synergymedicalgrp.com</a>
     </section>
 
     <section class="cta">
       <h3>🎓 Required Training Module</h3>
       <p>Please complete your training in MedTrainer by <strong>July 15, 2025</strong>.</p>
-      <a href="https://app.medtrainer.com/courses/YOUR-COURSE-ID" target="_blank">Launch MedTrainer Course</a>
+      <a href="https://lms.medtrainer.com/" target="_blank">Launch MedTrainer Course</a>
     </section>
 
     <section id="quiz-section">
       <h2>🧠 Quick Knowledge Check</h2>
       <form id="quiz-form">
         <div class="question">
-          <p>1. What is a common indicator of a phishing attempt?</p>
-          <label><input type="radio" name="q1" value="correct"> Unexpected request for login info</label><br>
-          <label><input type="radio" name="q1" value="wrong"> Email from your supervisor</label>
-        </div>
-        <div class="question">
-          <p>2. What should you do if you suspect a phishing email?</p>
-          <label><input type="radio" name="q2" value="wrong"> Ignore it</label><br>
-          <label><input type="radio" name="q2" value="correct"> Report to security team</label>
-        </div>
-        <div class="question">
-          <p>3. Which of the following is safe to click?</p>
-          <label><input type="radio" name="q3" value="correct"> Link in a known internal newsletter</label><br>
-          <label><input type="radio" name="q3" value="wrong"> Unknown zip file from a strange sender</label>
-        </div>
+         <!-- Question 1: Correct is "a" -->
+<p>1. What is phishing?</p>
+<label><input type="radio" name="q1" value="a"> A form of social engineering</label><br>
+<label><input type="radio" name="q1" value="b"> A type of encryption</label><br>
+<div id="q1-feedback" class="feedback"></div>
+
+<!-- Question 2: Correct is "b" -->
+<p>2. What should you do if you suspect a phishing email?</p>
+<label><input type="radio" name="q2" value="a"> Click the link</label><br>
+<label><input type="radio" name="q2" value="b"> Report it to IT</label><br>
+<div id="q2-feedback" class="feedback"></div>
+
+<!-- Question 3: Correct is "c" -->
+<p>3. What does a suspicious URL often contain?</p>
+<label><input type="radio" name="q3" value="a"> Your login info</label><br>
+<label><input type="radio" name="q3" value="c"> Misspelled domain names</label><br>
+<div id="q3-feedback" class="feedback"></div>
+
         <button type="submit">Check Answers</button>
         <p id="quiz-result"></p>
       </form>
