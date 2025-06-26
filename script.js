@@ -3,21 +3,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const user = params.get("user");
 
   if (user) {
-    const webhookURL = "https://discord.com/api/webhooks/1387868562420531311/gILUsx4X-vuz_2EUVzvgqol3JrT2D6lEmLTOpRMQIxM8d6eqVIIWSAwoihh4TNKpgDCP";
+    const loggingURL = "https://script.google.com/macros/s/AKfycbyW0Mvq5FcscFJDdO3e7A9SnLY0owpnLPtFRy9vjEHon-VZmPn9x5wJIUJxjGzxZ-0z/exec";
 
-    fetch(webhookURL, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        content: `🚨 **Phishing Click Detected!**\n👤 **User:** \`${user}\`\n🕒 **Time:** ${new Date().toLocaleString()}`
-      })
-    }).then(() => {
-      console.log("✅ Click alert sent to Discord.");
-    }).catch((error) => {
-      console.error("❌ Error sending webhook:", error);
-    });
+    fetch(`${loggingURL}?user=${encodeURIComponent(user)}`)
+      .then(res => console.log("✅ User logged to Google Sheets"))
+      .catch(err => console.error("❌ Logging error:", err));
   }
 });
-
