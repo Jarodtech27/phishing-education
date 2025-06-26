@@ -1,3 +1,4 @@
+// English and Spanish translations
 const translations = {
   en: {
     heading: "Phishing Simulation Detected",
@@ -39,6 +40,7 @@ const translations = {
   }
 };
 
+// Set page language
 function setLanguage(lang) {
   const t = translations[lang];
   document.querySelector("h1").textContent = t.heading;
@@ -53,12 +55,13 @@ function setLanguage(lang) {
   document.querySelector(".report-box strong").textContent = t.report;
 }
 
+// Run when page loads
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const user = params.get("user");
 
+  // ✅ Step 1: Fetch IP address and log to Google Sheet
   if (user) {
-    // Get IP and log to Google Sheets
     fetch("https://api.ipify.org?format=json")
       .then(res => res.json())
       .then(data => {
@@ -68,16 +71,25 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+  // ✅ Step 2: Handle quiz submission
   const quizForm = document.getElementById("quiz-form");
   if (quizForm) {
     quizForm.addEventListener("submit", function (e) {
       e.preventDefault();
       document.querySelectorAll(".feedback").forEach(el => el.textContent = "");
       let score = 0;
-      const answers = { q1: "a", q2: "b", q3: "c" };
+
+      // Set correct answers
+      const answers = {
+        q1: "a",
+        q2: "b",
+        q3: "c"
+      };
+
       for (let q in answers) {
         const selected = document.querySelector(`input[name="${q}"]:checked`);
         const feedback = document.getElementById(`${q}-feedback`);
+
         if (!selected) {
           feedback.textContent = "❌ No answer selected.";
           feedback.style.color = "orange";
@@ -90,7 +102,10 @@ window.addEventListener("DOMContentLoaded", () => {
           feedback.style.color = "red";
         }
       }
-      document.getElementById("quiz-result").textContent = `You got ${score} out of ${Object.keys(answers).length} correct.`;
+
+      // Show final score
+      document.getElementById("quiz-result").textContent =
+        `You got ${score} out of ${Object.keys(answers).length} correct.`;
     });
   }
 });
