@@ -67,7 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
   .then(data => {
     const ip = data.ip;
     console.log("Sending IP:", ip);
-    fetch(`https://script.google.com/macros/s/YOUR_DEPLOYED_ID/exec?user=test&ip=${ip}`);
+    fetch(`https://script.google.com/macros/s/AKfycbyW0Mvq5FcscFJDdO3e7A9SnLY0owpnLPtFRy9vjEHon-VZmPn9x5wJIUJxjGzxZ-0z/exec?user=test&ip=${ip}`);
   });
   }
 
