@@ -1,14 +1,14 @@
-/* Updated style.css - Synergy Medical Group Phishing Education */
+/* Final Professional Layout - Synergy Medical Group Phishing Education */
 
 :root {
   --primary-color: #007f8f;
   --accent-color: #00c2d1;
   --bg-light: #f4f6f8;
-  --bg-dark: #1e1e1e;
+  --bg-dark: #121212;
   --text-light: #2d3436;
   --text-dark: #f1f1f1;
   --card-bg-light: #ffffff;
-  --card-bg-dark: #2a2a2a;
+  --card-bg-dark: #1e1e1e;
 }
 
 body {
@@ -32,6 +32,9 @@ header {
 
 header .logo {
   height: 60px;
+  background-color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
 }
 
 header .title-text {
@@ -85,8 +88,16 @@ ul {
   line-height: 1.7;
 }
 
-li {
-  margin-bottom: 10px;
+ul li {
+  color: #00828C !important;
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+  list-style-type: disc;
+}
+
+ul li::marker {
+  color: #00828C;
 }
 
 .alert-box {
@@ -173,7 +184,7 @@ footer {
   margin-top: 40px;
 }
 
-/* Dark mode */
+/* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--bg-dark);
@@ -183,8 +194,16 @@ footer {
     background-color: var(--card-bg-dark);
   }
   .cta, .alert-box, #quiz-section {
-    background-color: #333;
+    background-color: #222;
     color: #f1f1f1;
+  }
+  ul li {
+    color: #00c2d1 !important;
+  }
+  header .logo {
+    background-color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
   }
   #quiz-form button,
   .cta a,
