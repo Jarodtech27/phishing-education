@@ -1,4 +1,4 @@
-// English and Spanish translations
+// Translations for English and Spanish
 const translations = {
   en: {
     heading: "Phishing Simulation Detected",
@@ -40,7 +40,7 @@ const translations = {
   }
 };
 
-// Set page language
+// Set the page language
 function setLanguage(lang) {
   const t = translations[lang];
   document.querySelector("h1").textContent = t.heading;
@@ -55,23 +55,21 @@ function setLanguage(lang) {
   document.querySelector(".report-box strong").textContent = t.report;
 }
 
-// Run when page loads
+// Run on page load
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
-  const user = params.get("user");
+  const user = params.get("user") || "Unknown";
 
-  // ✅ Step 1: Fetch IP address and log to Google Sheet
-  if (user) {
-    fetch("https://api.ipify.org?format=json")
-  .then(res => res.json())
-  .then(data => {
-    const ip = data.ip;
-    console.log("Sending IP:", ip);
-    fetch(`https://script.google.com/macros/s/AKfycbyW0Mvq5FcscFJDdO3e7A9SnLY0owpnLPtFRy9vjEHon-VZmPn9x5wJIUJxjGzxZ-0z/exec?user=test&ip=${ip}`);
-  });
-  }
+  // Log user and IP to Google Sheets
+  fetch("https://api.ipify.org?format=json")
+    .then(res => res.json())
+    .then(data => {
+      const ip = data.ip;
+      const logURL = "https://script.google.com/macros/s/AKfycbyW0Mvq5FcscFJDdO3e7A9SnLY0owpnLPtFRy9vjEHon-VZmPn9x5wJIUJxjGzxZ-0z/exec";
+      fetch(`${logURL}?user=${encodeURIComponent(user)}&ip=${ip}`);
+    });
 
-  // ✅ Step 2: Handle quiz submission
+  // Quiz logic
   const quizForm = document.getElementById("quiz-form");
   if (quizForm) {
     quizForm.addEventListener("submit", function (e) {
@@ -79,7 +77,6 @@ window.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".feedback").forEach(el => el.textContent = "");
       let score = 0;
 
-      // Set correct answers
       const answers = {
         q1: "a",
         q2: "b",
@@ -103,7 +100,6 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      // Show final score
       document.getElementById("quiz-result").textContent =
         `You got ${score} out of ${Object.keys(answers).length} correct.`;
     });
