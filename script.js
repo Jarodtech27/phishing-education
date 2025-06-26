@@ -63,12 +63,12 @@ window.addEventListener("DOMContentLoaded", () => {
   // ✅ Step 1: Fetch IP address and log to Google Sheet
   if (user) {
     fetch("https://api.ipify.org?format=json")
-      .then(res => res.json())
-      .then(data => {
-        const ip = data.ip;
-        const logURL = "https://script.google.com/macros/s/AKfycbyW0Mvq5FcscFJDdO3e7A9SnLY0owpnLPtFRy9vjEHon-VZmPn9x5wJIUJxjGzxZ-0z/exec";
-        fetch(`${logURL}?user=${encodeURIComponent(user)}&ip=${ip}`);
-      });
+  .then(res => res.json())
+  .then(data => {
+    const ip = data.ip;
+    console.log("Sending IP:", ip);
+    fetch(`https://script.google.com/macros/s/YOUR_DEPLOYED_ID/exec?user=test&ip=${ip}`);
+  });
   }
 
   // ✅ Step 2: Handle quiz submission
