@@ -1,4 +1,5 @@
-/* style.css - Synergy Medical Group Phishing Education */
+/* Updated style.css - Synergy Medical Group Phishing Education */
+
 :root {
   --primary-color: #007f8f;
   --accent-color: #00c2d1;
@@ -9,11 +10,186 @@
   --card-bg-light: #ffffff;
   --card-bg-dark: #2a2a2a;
 }
+
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
+  padding: 0;
   background-color: var(--bg-light);
   color: var(--text-light);
   transition: background 0.3s, color 0.3s;
 }
-/* [Remaining CSS omitted for brevity — already stored in context] */
+
+header {
+  background: var(--primary-color);
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  height: 60px;
+}
+
+header .title-text {
+  text-align: center;
+  flex: 1;
+}
+
+header .title-text h1 {
+  font-size: 28px;
+  margin: 0 0 5px;
+}
+
+header .title-text p {
+  margin: 0;
+  font-weight: 400;
+}
+
+.language-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.language-toggle button {
+  background: white;
+  color: var(--primary-color);
+  border: none;
+  padding: 8px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+main.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--card-bg-light);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.alert-box {
+  background: #fff3cd;
+  border-left: 6px solid #f0ad4e;
+  padding: 20px;
+  margin: 40px 0;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.cta {
+  background: #e8faff;
+  border-left: 6px solid var(--accent-color);
+  padding: 25px;
+  border-radius: 6px;
+  margin: 40px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.cta a {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta a:hover {
+  background-color: #00a8b8;
+}
+
+#quiz-section {
+  background: #f1f7fa;
+  border-left: 6px solid var(--primary-color);
+  padding: 25px;
+  border-radius: 6px;
+  margin-top: 50px;
+}
+
+.question {
+  margin-bottom: 25px;
+}
+
+#quiz-form button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#quiz-form button:hover {
+  background-color: #006b7a;
+}
+
+.pdf-button {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.pdf-button button {
+  background-color: #444;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+  font-size: 0.9em;
+  margin-top: 40px;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+  .container {
+    background-color: var(--card-bg-dark);
+  }
+  .cta, .alert-box, #quiz-section {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+  #quiz-form button,
+  .cta a,
+  .pdf-button button {
+    background-color: var(--accent-color);
+    color: #000;
+  }
+}
