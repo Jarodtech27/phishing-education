@@ -1,0 +1,19 @@
+/* style.css - Synergy Medical Group Phishing Education */
+:root {
+  --primary-color: #007f8f;
+  --accent-color: #00c2d1;
+  --bg-light: #f4f6f8;
+  --bg-dark: #1e1e1e;
+  --text-light: #2d3436;
+  --text-dark: #f1f1f1;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #2a2a2a;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.3s, color 0.3s;
+}
+/* [Remaining CSS omitted for brevity — already stored in context] */
